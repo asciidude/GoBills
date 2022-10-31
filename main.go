@@ -1,9 +1,5 @@
 package main
 
-// float32 will be used for calculation of prices,
-// since it is nearly impossible to get anywhere near the limit of
-// float64 with real money
-
 /* Imports */
 import (
 	"fmt"
@@ -15,6 +11,14 @@ import (
 type Item struct {
 	name  string
 	price float64
+}
+
+type ReturnInformation struct {
+	formattedTime string
+	path          string
+	tax           float64
+	afterTax      float64
+	beforeTax     float64
 }
 
 var billsPath string = "Bills"
@@ -43,7 +47,7 @@ func main() {
 	)
 }
 
-func AddBill(name string, items []Item, tax float64) string {
+func AddBill(name string, items []Item, tax float64) ReturnInformation {
 	time := time.Now()
 
 	var formattedTime string = fmt.Sprint(
@@ -68,11 +72,11 @@ func AddBill(name string, items []Item, tax float64) string {
 				"\n" + strconv.FormatFloat(items[i].price, 'f', 2, 64) +
 				"\n\n"
 
-		total += float64(items[i].price)
+		total += items[i].price
 	}
 
 	formattedBills += "Total before tax: " + strconv.FormatFloat(total, 'f', 2, 64) + "\n"
-	formattedBills += "Total after tax: " + strconv.FormatFloat(total*float64(tax), 'f', 2, 64)
+	formattedBills += "Total after tax: " + strconv.FormatFloat(total*tax, 'f', 2, 64)
 
 	var path = billsPath +
 		"/" +
@@ -87,5 +91,11 @@ func AddBill(name string, items []Item, tax float64) string {
 		0644,
 	)
 
-	return path
+	return ReturnInformation{
+		formattedTime,
+		path,
+		tax,
+		total * tax,
+		total,
+	}
 }
