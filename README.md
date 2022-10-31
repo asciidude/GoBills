@@ -10,5 +10,5 @@ GoBills does the following:
 * Has a simple codebase, easy to read and edit
 * Makes storing bills easier, in general
 
-GoBills does **not** make any calls to any sort of API to actually transfer money,
-I'm afraid if you're looking for this, you'll have to look elsewhere.
+GoBills does **not** actually transfer money, I'm afraid if you're looking for that,
+you'll have to look elsewhere. GoBills is simply an easy way to store bills.
