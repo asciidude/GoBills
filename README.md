@@ -5,7 +5,7 @@ GoBills does the following:
 
 * Stores bills in a specified directory, can be changed
 * Uses a structure for items for type safety
-* Returns the saved file path when the function is called
+* Returns the saved file path, tax, after tax total, before tax total, and time 
 * Calculates before and after sales tax
 * Has a simple codebase, easy to read and edit
 * Makes storing bills easier, in general
