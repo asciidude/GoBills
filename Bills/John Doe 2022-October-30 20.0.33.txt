@@ -1,0 +1,13 @@
+John Doe at 2022-October-30 20.0.33
+
+Chips & Queso
+50.00
+
+Hungry Meal w/ Coca Cola
+50.20
+
+Sushi Soup x500
+225.30
+
+Total before tax: 325.50
+Total after tax: 345.03
